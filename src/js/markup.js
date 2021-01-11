@@ -1,5 +1,4 @@
 import fetchCountries from './fetchCountries';
-// import refs from './refs.js';
 import { success, info, error } from './pnotify.js';
 import oneCountryMarkup from '../templates/oneCountry.hbs';
 import upToTenCountriesMarkup from '../templates/upToTenCountries.hbs';
