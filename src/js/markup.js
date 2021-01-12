@@ -9,11 +9,12 @@ const refs = {
 };
 const _ = require('lodash');
 const url = 'https://restcountries.eu/rest/v2/name/';
+
 const debouncedSearch = _.debounce(() => {
     if (refs.input.value !== "") {
         fetchCountries(url + refs.input.value.toLowerCase())
             .then(data => {searchMarkup(data)})
-            .catch(() => {
+            .catch(error => {
 error({
 title:"No matches!",
      text: "Please try another query.",
@@ -37,6 +38,5 @@ const searchMarkup = function (data) {
             refs.output.innerHTML = "";
         };
 }
-
 refs.input.addEventListener('input', debouncedSearch);
 refs.input.addEventListener('submit', event => event.preventDefault());
