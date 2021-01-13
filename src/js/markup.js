@@ -14,10 +14,10 @@ const debouncedSearch = _.debounce(() => {
     if (refs.input.value !== "") {
         fetchCountries(url + refs.input.value.toLowerCase())
             .then(data => {searchMarkup(data)})
-            .catch(error => {
+            .catch(e => {
 error({
-title:"No matches!",
-     text: "Please try another query.",
+title:'Ooops! Something went wrong 🤷',
+     text: e.message,
      type: 'error'
  });
      refs.output.innerHTML = "";
